@@ -1,0 +1,6 @@
+apiVersion: v2
+name: clusterview
+description: ClusterView operator + HTTP API/UI
+type: application
+version: 0.1.0
+appVersion: "0.1.0"

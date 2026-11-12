@@ -1,0 +1,16 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: clusterview-role
+  labels:
+    {{- include "clusterview.labels" . | nindent 4 }}
+rules:
+- apiGroups: [""]
+  resources: ["nodes", "pods"]
+  verbs: ["list", "watch"]
+- apiGroups: ["clusterview.io"]
+  resources: ["clusterviews"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["clusterview.io"]
+  resources: ["clusterviews/status"]
+  verbs: ["patch"]

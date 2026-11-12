@@ -1,0 +1,23 @@
+image:
+  repository: clusterview
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicaCount: 1
+
+service:
+  type: ClusterIP   # set to LoadBalancer to expose publicly
+  port: 8082
+
+clusterView:
+  name: cluster
+  namespaces: []        # [] = all namespaces
+  refreshInterval: 30s
+
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi

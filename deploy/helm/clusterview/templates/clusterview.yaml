@@ -1,0 +1,17 @@
+apiVersion: clusterview.io/v1
+kind: ClusterView
+metadata:
+  name: {{ .Values.clusterView.name }}
+  labels:
+    {{- include "clusterview.labels" . | nindent 4 }}
+  annotations:
+    # The CRD ships in crds/, which Helm registers before templates but
+    # does NOT wait for to reach Established. Apply the instance as a
+    # post-install/upgrade hook so it lands after the CRD is usable,
+    # avoiding a cold-install "no matches for kind ClusterView" race.
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  refreshInterval: {{ .Values.clusterView.refreshInterval }}
+  namespaces:
+    {{- toYaml .Values.clusterView.namespaces | nindent 4 }}

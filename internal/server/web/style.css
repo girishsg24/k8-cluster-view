@@ -1,0 +1,14 @@
+body { font-family: system-ui, sans-serif; margin: 1.5rem; color: #1b1f23; }
+h1 { margin: 0 0 1rem; }
+.summary { background: #f3f5f7; padding: .75rem 1rem; border-radius: 8px; margin-bottom: 1rem; }
+.cols { display: flex; gap: 1.5rem; align-items: flex-start; flex-wrap: wrap; }
+.cols > section { flex: 1 1 360px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #dde1e4; padding: .35rem .5rem; text-align: left; font-size: 14px; }
+th { background: #eef1f3; }
+tr.node { cursor: pointer; }
+tr.node:hover { background: #eef6ff; }
+tr.node.selected { background: #d9ecff; }
+.ok { color: #137333; } .bad { color: #c5221f; }
+.phase-Running { color: #137333; } .phase-Pending { color: #b06000; }
+.phase-Failed { color: #c5221f; } .phase-Succeeded { color: #5f6368; }
